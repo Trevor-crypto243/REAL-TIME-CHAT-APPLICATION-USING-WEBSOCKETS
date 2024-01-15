@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: laravel_realtime_chat
+    container_name: laravel_realtime_chat
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+    networks:
+      - laravel
+
+  mysql:
+    image: mysql:5.7
+    container_name: laravel_realtime_mysql
+    environment:
+      MYSQL_DATABASE: laravel_realtime
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: laravel_password
+      MYSQL_ROOT_PASSWORD: root_password
+    ports:
+      - "3307:3307"
+    networks:
+      - laravel
+
+networks:
+  laravel:
+    driver: bridge
