@@ -5,8 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: laravel_realtime_chat
-    container_name: laravel_realtime_chat
+    image: laravel_realtime_chat2
+    container_name: laravel_realtime_chat2
     ports:
       - "8000:8000"
     depends_on:
